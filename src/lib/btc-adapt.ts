@@ -52,3 +52,26 @@ export function regimeBands(regimes: { date: string; regime: Regime }[]) {
   }
   return bands;
 }
+
+export const MODEL_META = [
+  { key: "naive", label: "Naive", color: "#64748b" },
+  { key: "xgboost", label: "XGBoost", color: "#38bdf8" },
+  { key: "lstm", label: "LSTM", color: "#a78bfa" },
+  { key: "btc_adapt", label: "BTC-Adapt", color: "#f59e0b" },
+] as const;
+
+export const TOOLTIP_STYLE = {
+  contentStyle: {
+    background: "#0b0b10",
+    border: "1px solid #f59e0b",
+    borderRadius: 10,
+    fontSize: 12,
+    color: "#e5e7eb",
+  },
+  labelStyle: { color: "#f59e0b", fontWeight: 600 },
+  itemStyle: { color: "#e5e7eb" },
+};
+
+/** Pipeline exports predicted_next_return as a fraction (0.0142 = +1.42%). */
+export const pct = (fraction: number, digits = 2) =>
+  `${fraction >= 0 ? "+" : "−"}${Math.abs(fraction * 100).toFixed(digits)}%`;
