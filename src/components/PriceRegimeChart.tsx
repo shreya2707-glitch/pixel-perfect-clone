@@ -78,6 +78,7 @@ export function PriceRegimeChart({ data }: { data: BtcAdaptResults }) {
               formatter={(v: number) => [currency(v), "Close"]}
             />
             <Line
+              isAnimationActive={false}
               type="monotone"
               dataKey="close"
               stroke={CHART.amber}

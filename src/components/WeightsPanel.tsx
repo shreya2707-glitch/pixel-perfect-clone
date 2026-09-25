@@ -25,6 +25,7 @@ export function WeightsPanel({ data }: { data: BtcAdaptResults }) {
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
+                isAnimationActive={false}
                 data={pie}
                 dataKey="value"
                 nameKey="name"

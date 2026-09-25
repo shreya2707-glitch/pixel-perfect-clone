@@ -49,6 +49,7 @@ export function ActualVsPredicted({ data }: { data: BtcAdaptResults }) {
             />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Line
+              isAnimationActive={false}
               type="monotone"
               name="Actual"
               dataKey="actual"
@@ -57,6 +58,7 @@ export function ActualVsPredicted({ data }: { data: BtcAdaptResults }) {
               dot={false}
             />
             <Line
+              isAnimationActive={false}
               type="monotone"
               name="Predicted"
               dataKey="predicted"
