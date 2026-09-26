@@ -162,8 +162,8 @@ The dashboard expects `public/btc_adapt_results.json` in this shape:
 ## Running the dashboard locally
 
 ```bash
-git clone https://github.com/shreya2707-glitch/pixel-perfect-clone.git
-cd pixel-perfect-clone
+git clone https://github.com/shreya2707-glitch/BTC-Adapt.git
+cd BTC-Adapt
 npm i
 npm run dev
 ```
