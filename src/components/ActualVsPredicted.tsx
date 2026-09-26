@@ -9,8 +9,9 @@ function nextDate(iso: string) {
 
 const NEXT_COLOR = "#22d3ee";
 
-function StarDot(props: { cx?: number; cy?: number }) {
-  const { cx = 0, cy = 0 } = props;
+function StarDot(props: { cx?: number; cy?: number; payload?: { next?: number } }) {
+  const { cx = 0, cy = 0, payload } = props;
+  if (payload?.next == null) return <g />;
   const r = 8;
   const points = Array.from({ length: 10 }, (_, i) => {
     const angle = (Math.PI / 5) * i - Math.PI / 2;
