@@ -22,7 +22,7 @@ function StarDot(props: { cx?: number; cy?: number }) {
 
 export function ActualVsPredicted({ data }: { data: BtcAdaptResults }) {
   const n = data.predictions.length;
-  const last = data.predictions[n - 1];
+  const last = data.predictions[n - 1]!;
   const nextPt = { date: nextDate(last.date), actual: undefined, predicted: undefined, next: data.predicted_next_price };
   // Bridge point so the dashed connector starts at the last actual value.
   const bridge = { ...last, predicted: undefined, next: last.actual };
