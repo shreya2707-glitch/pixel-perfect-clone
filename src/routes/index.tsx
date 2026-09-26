@@ -137,6 +137,29 @@ function Index() {
 
           {tab === "overview" && data && (
             <>
+              <section className="rounded-xl border border-border bg-card p-6 shadow-lg sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Tomorrow's Prediction</h2>
+                  <span
+                    className="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold"
+                    style={{ color: REGIME_COLORS[data.current_regime], backgroundColor: `${REGIME_COLORS[data.current_regime]}1f` }}
+                  >
+                    {data.current_regime}
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-wrap items-end gap-x-8 gap-y-2">
+                  <div className="text-4xl font-bold tracking-tight tabular-nums sm:text-5xl">{currency(data.predicted_next_price)}</div>
+                  <div
+                    className="pb-1 text-2xl font-semibold tabular-nums sm:text-3xl"
+                    style={{ color: ret >= 0 ? REGIME_COLORS.Bull : REGIME_COLORS.Bear }}
+                  >
+                    {pct(ret)}
+                  </div>
+                </div>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  Based on backtested directional accuracy of {data.metrics.btc_adapt.directional_accuracy}% — not financial advice.
+                </p>
+              </section>
               <PriceRegimeChart data={data} />
               <WeightsPanel data={data} />
               <button
