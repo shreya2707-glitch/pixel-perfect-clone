@@ -24,7 +24,7 @@ const STEPS = [
   },
 ];
 
-const GLOSSARY = [
+const GLOSSARY: [string, string][] = [
   ["Regime", "A market 'mood' — a stretch of days with similar trend and volatility, like a bull run or a choppy sideways market."],
   ["MAE", "Mean Absolute Error: the average dollar gap between predicted and actual price."],
   ["RMSE", "Root Mean Squared Error: like MAE, but punishes big misses more heavily."],
@@ -70,9 +70,9 @@ export function Methodology() {
             {open !== null && (
               <div key={open} className="mt-4 animate-fade-in rounded-lg border border-border bg-background/60 p-4 text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">
-                  Step {open + 1}: {STEPS[open].title}.
+                  Step {open + 1}: {STEPS[open]!.title}.
                 </span>{" "}
-                {STEPS[open].body}
+                {STEPS[open]!.body}
               </div>
             )}
           </div>

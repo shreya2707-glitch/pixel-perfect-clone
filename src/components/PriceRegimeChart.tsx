@@ -35,7 +35,7 @@ export function PriceRegimeChart({ data }: { data: BtcAdaptResults }) {
     if (!selected) return null;
     const rets: number[] = [];
     rows.forEach((r, i) => {
-      if (i > 0 && r.regime === selected) rets.push(r.close / rows[i - 1].close - 1);
+      if (i > 0 && r.regime === selected) rets.push(r.close / rows[i - 1]!.close - 1);
     });
     const days = rows.filter((r) => r.regime === selected).length;
     const avg = rets.length ? rets.reduce((a, b) => a + b, 0) / rets.length : 0;
