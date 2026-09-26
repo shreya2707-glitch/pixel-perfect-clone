@@ -9,9 +9,9 @@ function nextDate(iso: string) {
 
 const NEXT_COLOR = "#22d3ee";
 
-function StarDot(props: { cx?: number; cy?: number; payload?: { next?: number } }) {
+function StarDot(props: { cx?: number; cy?: number; payload?: { star?: boolean } }) {
   const { cx = 0, cy = 0, payload } = props;
-  if (payload?.next == null) return <g />;
+  if (!payload?.star) return <g />;
   const r = 8;
   const points = Array.from({ length: 10 }, (_, i) => {
     const angle = (Math.PI / 5) * i - Math.PI / 2;
@@ -24,7 +24,7 @@ function StarDot(props: { cx?: number; cy?: number; payload?: { next?: number } 
 export function ActualVsPredicted({ data }: { data: BtcAdaptResults }) {
   const n = data.predictions.length;
   const last = data.predictions[n - 1]!;
-  const nextPt = { date: nextDate(last.date), actual: undefined, predicted: undefined, next: data.predicted_next_price };
+  const nextPt = { date: nextDate(last.date), actual: undefined, predicted: undefined, next: data.predicted_next_price, star: true };
   // Bridge point so the dashed connector starts at the last actual value.
   const bridge = { ...last, predicted: undefined, next: last.actual };
   const rows = [...data.predictions.slice(0, -1), bridge, nextPt];
